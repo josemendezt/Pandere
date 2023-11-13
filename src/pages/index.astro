@@ -1,7 +1,8 @@
 ---
-import LayoutExt from '../layouts/LayoutExt.astro';
+import LayoutInt from '@/layouts/LayoutInt.astro'
+import EmployeesTable from '@/components/home/EmployeesTable'
 ---
 
-<LayoutExt title="Welcome to Pandere">
-	<div>Main page</div>
-</LayoutExt>
+<LayoutInt title="Welcome to Pandere">
+  <EmployeesTable />
+</LayoutInt>
