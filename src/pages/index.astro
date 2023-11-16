@@ -1,8 +1,10 @@
 ---
 import LayoutInt from '@/layouts/LayoutInt.astro'
 import EmployeesTable from '@/components/home/employeesTable'
+import InviteEmployees from '@/components/home/inviteEmployees'
 ---
 
 <LayoutInt title="Welcome to Pandere">
+  <InviteEmployees client:load />
   <EmployeesTable />
 </LayoutInt>
