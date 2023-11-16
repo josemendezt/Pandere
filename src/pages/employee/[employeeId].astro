@@ -1,0 +1,62 @@
+---
+import { getEmployeeById } from '@/services/employee'
+import LayoutInt from '@/layouts/LayoutInt.astro'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Input,
+  Button,
+  Label,
+  Separator,
+} from '@/components/ui'
+import PerformanceSlider from '@/components/employeeDetail/performanceSlider'
+import GoalsTable from '@/components/employeeDetail/goalsTable'
+
+export const prerender = false // serverside
+
+const { employeeId } = Astro.params
+
+let employee
+if (employeeId) employee = await getEmployeeById(employeeId)
+---
+
+<LayoutInt title="Welcome to Pandere">
+  <Card>
+    <CardHeader>
+      <div class="mb-4 flex flex-wrap items-center justify-between">
+        <img
+          width={100}
+          class="rounded-full"
+          src={`../${employee?.picture}`}
+          alt={employee?.name}
+        />
+        <div class="ml-4">
+          <CardTitle className="text-3xl">
+            {`${employee?.name} ${employee?.last_name}`}
+          </CardTitle>
+        </div>
+        <div>
+          <div>
+            <span class="mr-2 text-muted-foreground">Position:</span>
+            {employee?.position}
+          </div>
+        </div>
+        <div>
+          <div>
+            <span class="mr-2 text-muted-foreground">Team:</span>
+            {employee?.team}
+          </div>
+        </div>
+      </div>
+      <Separator />
+      <PerformanceSlider client:load />
+      <Separator />
+    </CardHeader>
+    <GoalsTable goals={employee?.goals || []} client:load />
+    <CardContent />
+  </Card>
+</LayoutInt>
