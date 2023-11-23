@@ -6,6 +6,9 @@ import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/login': '/',
+  },
   integrations: [tailwind(), react()],
   output: 'hybrid',
   adapter: vercel(),
