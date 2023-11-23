@@ -24,11 +24,11 @@ if (userId) employee = await getEmployeeById(userId)
     <CardHeader>
       <div class="mb-4 flex flex-wrap items-center justify-between">
         <a
-          href={`/employee/${employee.id}`}
+          href={`/employee/${employee?.id}`}
           class="flex items-center py-4 font-medium"
         >
           {
-            employee.picture ? (
+            employee?.picture ? (
               <img
                 width={60}
                 class="rounded-full"
@@ -37,11 +37,11 @@ if (userId) employee = await getEmployeeById(userId)
               />
             ) : (
               <div class="flex h-[60px] w-[60px] items-center justify-center rounded-full border bg-secondary">
-                {employee.name.charAt(0)} {employee.last_name.charAt(0)}
+                {employee?.name.charAt(0)} {employee?.last_name.charAt(0)}
               </div>
             )
           }
-          <div class="ml-4">{`${employee.name} ${employee.last_name}`}</div>
+          <div class="ml-4">{`${employee?.name} ${employee?.last_name}`}</div>
         </a>
         <div class="ml-4">
           <CardTitle className="text-3xl">
@@ -61,12 +61,16 @@ if (userId) employee = await getEmployeeById(userId)
           </div>
         </div>
         <div>
-          <div>
-            <span class="mr-2 text-muted-foreground">Performance:</span>
-            <span class={getPerformance(employee?.performance).class}
-              >{getPerformance(employee?.performance).text}</span
-            >
-          </div>
+          {
+            employee?.performance && (
+              <div>
+                <span class="mr-2 text-muted-foreground">Performance:</span>
+                <span class={getPerformance(employee?.performance).class}>
+                  {getPerformance(employee?.performance).text}
+                </span>
+              </div>
+            )
+          }
         </div>
       </div>
       <Separator />
