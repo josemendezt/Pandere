@@ -33,7 +33,7 @@ function InviteEmployees() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button>Invite Employees</Button>
         </DialogTrigger>
         <DialogContent className="min-h-50vh mx-auto max-h-[80vh] w-full overflow-auto">

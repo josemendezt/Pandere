@@ -1,0 +1,40 @@
+---
+import { getGoalCategories, getGoalsByCategory } from '@/services/goal'
+import Categories from '@/components/goalSteps/categories'
+import Questions from '@/components/goalSteps/questions'
+import Results from '@/components/goalSteps/results'
+import LayoutInt from '@/layouts/LayoutInt.astro'
+import type { Category, Goal } from '@/tempData/goals'
+export const prerender = false // serverside
+
+const { step, category } = Astro.params
+
+const cat = category as Category
+
+let goal
+if (step !== 'selection' && cat) {
+  goal = (await getGoalsByCategory(cat)) as Goal
+}
+
+const categories = (await getGoalCategories()) as Category[]
+---
+
+<LayoutInt title="Welcome to Pandere">
+  <section transition:animate="slide">
+    {
+      (() => {
+        switch (step) {
+          case 'selection':
+            return <Categories categories={categories} client:load />
+          case 'questions':
+            if (goal)
+              return <Questions goal={goal} category={cat} client:load />
+          case 'results':
+            if (goal) return <Results goal={goal} client:load />
+          default:
+            <></>
+        }
+      })()
+    }
+  </section>
+</LayoutInt>

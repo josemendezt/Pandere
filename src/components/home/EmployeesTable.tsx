@@ -15,8 +15,8 @@ import { Separator } from '../ui'
 export default function EmployeesTable() {
   return (
     <>
-      <div className="-mt-8 ml-auto w-40 border  px-4 py-1 text-center">
-        {employees.length} / 5 Employees
+      <div className="-mt-8 ml-auto w-60 border  px-4 py-1 text-center">
+        1 / {employees.length} Employees enrolled
       </div>
       <section className="mt-8">
         <Table>
@@ -45,12 +45,18 @@ export default function EmployeesTable() {
                     href={`/employee/${employee.id}`}
                     className="flex items-center  py-4 font-medium"
                   >
-                    <img
-                      width={60}
-                      className="rounded-full"
-                      src={employee.picture}
-                      alt={employee.name}
-                    />
+                    {employee.picture ? (
+                      <img
+                        width={60}
+                        className="rounded-full"
+                        src={employee.picture}
+                        alt={employee.name}
+                      />
+                    ) : (
+                      <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full border bg-secondary">
+                        {employee.name.charAt(0)} {employee.last_name.charAt(0)}
+                      </div>
+                    )}
                     <div className="ml-4">{`${employee.name} ${employee.last_name}`}</div>
                   </a>
                 </TableCell>

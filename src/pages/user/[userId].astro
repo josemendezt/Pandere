@@ -1,6 +1,7 @@
 ---
 import { getEmployeeById } from '@/services/employee'
 import LayoutInt from '@/layouts/LayoutInt.astro'
+import { getPerformance } from '@/components/utils/getPerformance'
 import {
   Card,
   CardContent,
@@ -13,36 +14,40 @@ import {
   Label,
   Separator,
 } from '@/components/ui'
-import PerformanceSlider from '@/components/employeeDetail/performanceSlider'
 import GoalsTable from '@/components/employeeDetail/goalsTable'
 
 export const prerender = false // serverside
 
-const { employeeId } = Astro.params
+const { userId } = Astro.params
 
 let employee
-if (employeeId) employee = await getEmployeeById(employeeId)
+if (userId) employee = await getEmployeeById(userId)
 ---
 
 <LayoutInt title="Welcome to Pandere">
   <Card>
     <CardHeader>
       <div class="mb-4 flex flex-wrap items-center justify-between">
-        {
-          employee?.picture ? (
-            <img
-              width={100}
-              class="rounded-full"
-              src={`../${employee?.picture}`}
-              alt={employee?.name}
-            />
-          ) : (
-            <div class="flex h-[60px] w-[60px] items-center justify-center rounded-full border bg-secondary">
-              {employee?.name.charAt(0)} {employee?.last_name.charAt(0)}
-            </div>
-          )
-        }
-
+        <a
+          href={`/employee/${employee.id}`}
+          class="flex items-center py-4 font-medium"
+        >
+          {
+            employee.picture ? (
+              <img
+                width={60}
+                class="rounded-full"
+                src={`../${employee.picture}`}
+                alt={employee.name}
+              />
+            ) : (
+              <div class="flex h-[60px] w-[60px] items-center justify-center rounded-full border bg-secondary">
+                {employee.name.charAt(0)} {employee.last_name.charAt(0)}
+              </div>
+            )
+          }
+          <div class="ml-4">{`${employee.name} ${employee.last_name}`}</div>
+        </a>
         <div class="ml-4">
           <CardTitle className="text-3xl">
             {`${employee?.name} ${employee?.last_name}`}
@@ -60,9 +65,15 @@ if (employeeId) employee = await getEmployeeById(employeeId)
             {employee?.team}
           </div>
         </div>
+        <div>
+          <div>
+            <span class="mr-2 text-muted-foreground">Performance:</span>
+            <span class={getPerformance(employee?.performance).class}
+              >{getPerformance(employee?.performance).text}</span
+            >
+          </div>
+        </div>
       </div>
-      <Separator />
-      <PerformanceSlider client:load />
       <Separator />
     </CardHeader>
     <GoalsTable goals={employee?.goals || []} client:load />
