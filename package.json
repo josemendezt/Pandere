@@ -9,6 +9,17 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run format",
+      "npm run lint -- --fix"
+    ]
+  },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/react": "^3.0.4",
@@ -69,16 +80,5 @@
     "prettier-plugin-astro": "^0.12.1",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "vite-plugin-svgr": "^4.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run format",
-      "npm run lint -- --fix"
-    ]
   }
 }
