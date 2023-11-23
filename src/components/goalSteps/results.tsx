@@ -1,9 +1,6 @@
-import { BellIcon, CheckIcon } from '@radix-ui/react-icons'
-
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
-import { navigate } from 'astro:transitions/client'
 import type { Goal } from '@/tempData/goals'
 import { useState } from 'react'
 import { Dialog, DialogTrigger } from '../ui'
@@ -12,6 +9,7 @@ import PaymentCardForm from '../shared/paymentCardForm'
 export default function Results({ goal }: { goal: Goal }) {
   const [selectedResult, setSelectedResult] = useState(0)
   const goBack = () => {
+    // eslint-disable-next-line no-undef
     history.back()
   }
 

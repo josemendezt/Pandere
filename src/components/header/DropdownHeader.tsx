@@ -1,5 +1,4 @@
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -8,10 +7,9 @@ import {
   DropdownMenuTrigger,
 } from '../ui'
 
-import { Fragment } from 'react'
 import IconReact from '../utils/IconReact'
 
-function DropdownHeader() {
+export default function DropdownHeader() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -34,5 +32,3 @@ function DropdownHeader() {
     </DropdownMenu>
   )
 }
-
-export default DropdownHeader

@@ -10,7 +10,6 @@ import {
 
 import { employees } from '@/tempData/employees'
 import { getPerformance } from '@/components/utils/getPerformance'
-import { Separator } from '../ui'
 
 export default function EmployeesTable() {
   return (

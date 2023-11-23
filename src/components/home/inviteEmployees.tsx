@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   Button,
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -14,10 +12,9 @@ import {
   DialogTrigger,
   Input,
   Label,
-  Separator,
 } from '../ui'
 
-function InviteEmployees() {
+export default function InviteEmployees() {
   const emptyEmployee = {
     firstName: '',
     lastName: '',
@@ -89,5 +86,3 @@ function InviteEmployees() {
     </div>
   )
 }
-
-export default InviteEmployees

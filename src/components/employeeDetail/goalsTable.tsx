@@ -6,17 +6,14 @@ import {
   TableHeader,
   TableRow,
   Button,
-  Input,
   Dialog,
   DialogTrigger,
 } from '@/components/ui'
 
 import type { EmployeeGoal } from '@/types/employee'
-import { useState } from 'react'
 import SelectPaymentModal from '../shared/selectPaymentModal'
 
 export default function GoalsTable({ goals }: { goals: EmployeeGoal[] }) {
-  const [recognitionId, setRecognitionId] = useState('')
   return (
     <div className="mx-auto w-[96%] rounded bg-secondary p-4">
       <h4 className="text-2xl">Eligible Expenses</h4>

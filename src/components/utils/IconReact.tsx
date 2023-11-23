@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, Fragment } from 'react'
+import React, { lazy, Suspense } from 'react'
 
 interface IconProps {
   iconName: string

@@ -7,7 +7,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { DialogTitle } from '@radix-ui/react-dialog'
 import { Card, CardContent, RadioGroup, RadioGroupItem } from '../ui'
 import PaymentCardForm from './paymentCardForm'

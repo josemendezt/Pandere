@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -28,9 +26,10 @@ export default function Questions({
   category: Category
 }) {
   const getField = (type: string, options?: string[]) => {
+    const [range, setRange] = useState<DateRange | undefined>()
+
     switch (type) {
       case 'multiDatePicker':
-        const [range, setRange] = useState<DateRange | undefined>()
         return (
           <Calendar
             mode="range"
@@ -68,6 +67,7 @@ export default function Questions({
   }
 
   const goBack = () => {
+    // eslint-disable-next-line no-undef
     history.back()
   }
 

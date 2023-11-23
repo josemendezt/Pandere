@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react'
 import * as SheetPrimitive from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
@@ -15,7 +16,6 @@ const SheetPortal = ({
   className,
   ...props
 }: SheetPrimitive.DialogPortalProps & { className: string }) => (
-  //@ts-ignore
   <SheetPrimitive.Portal className={cn(className)} {...props} />
 )
 SheetPortal.displayName = SheetPrimitive.Portal.displayName
@@ -62,7 +62,6 @@ const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
 >(({ side = 'right', className, children, ...props }, ref) => (
-  //@ts-ignore
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content

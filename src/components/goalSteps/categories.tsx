@@ -5,9 +5,8 @@ import {
   CardDescription,
   RadioGroup,
   RadioGroupItem,
-  Checkbox,
 } from '@/components/ui'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import IconReact from '../utils/IconReact'
 import type { Category } from '@/tempData/goals'
 import { navigate } from 'astro:transitions/client'
