@@ -10,6 +10,6 @@ export default defineConfig({
     '/': '/login',
   },
   integrations: [tailwind(), react()],
-  output: 'hybrid',
+  output: 'server',
   adapter: vercel(),
 })
