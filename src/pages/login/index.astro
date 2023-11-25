@@ -1,16 +1,6 @@
 ---
-import Icon from '@/components/utils/Icon.astro'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  Input,
-  Button,
-  Label,
-  Separator,
-} from '@/components/ui'
 import LayoutExt from '@/layouts/LayoutExt.astro'
+import LoginForm from '@/components/login/loginForm'
 
 if (Astro.request.method === 'POST') {
   try {
@@ -31,61 +21,5 @@ if (Astro.request.method === 'POST') {
 ---
 
 <LayoutExt title="Login to Pandere">
-  <section class="flex h-screen items-center justify-center">
-    <Card className="mx-auto max-h-full w-80">
-      <form method="POST">
-        <CardHeader>
-          <div class="mx-auto w-24 max-w-full">
-            <Icon icon="pandere_purple" />
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div class="grid max-h-full w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              placeholder="email"
-              required
-              name="email"
-            />
-          </div>
-          <div class="mt-4 grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              type="password"
-              name="password"
-              autoComplete="on"
-              id="password"
-              placeholder="password"
-              required
-            />
-            <a class="mx-auto underline" href="/forgotPassword">
-              Forgot your password?
-            </a>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <div class="mx-auto w-full max-w-sm">
-            <Button className="mx-auto w-full max-w-sm" type="submit">
-              Login
-            </Button>
-
-            <div class="mt-2 flex">
-              <Separator className="my-4 w-2/5" />
-              <span class="px-4 pt-1">Or</span>
-              <Separator className="my-4 w-2/5" />
-            </div>
-            <Button
-              type="button"
-              variant="outline"
-              className="mx-auto mt-1 w-full max-w-sm"
-            >
-              Sign Up
-            </Button>
-          </div>
-        </CardFooter>
-      </form>
-    </Card>
-  </section>
+  <LoginForm client:only />
 </LayoutExt>
