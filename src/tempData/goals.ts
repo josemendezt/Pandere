@@ -19,7 +19,7 @@ export const goals = {
         text: 'AirCanada',
         promotion: '20% discount, buy now pay later!',
         price: 2000,
-        img: 'src/assets/paris.jpeg',
+        img: '/assets/paris.jpeg',
         partnerImg: '',
       },
       {
@@ -27,7 +27,7 @@ export const goals = {
         text: 'Flair Airlines',
         promotion: '30% discount, buy now pay later!',
         price: 1800,
-        img: 'src/assets/paris.jpeg',
+        img: '/assets/paris.jpeg',
         partnerImg: '',
       },
       {
@@ -35,7 +35,7 @@ export const goals = {
         text: 'Westjet & Airbnb',
         promotion: 'Flight + Lodging, awesome deal',
         price: 4000,
-        img: 'src/assets/paris.jpeg',
+        img: '/assets/paris.jpeg',
         partnerImg: '',
       },
       {
@@ -43,7 +43,7 @@ export const goals = {
         text: 'Lynx Airlines',
         promotion: '10% discount, buy now pay later!',
         price: 2200,
-        img: 'src/assets/paris.jpeg',
+        img: '/assets/paris.jpeg',
         partnerImg: '',
       },
     ],
@@ -114,7 +114,7 @@ export const goals = {
         text: 'Iphone 15',
         promotion: '0.1 $ Per every dollar saved for this purpose',
         price: 1200,
-        img: 'src/assets/iphone.png',
+        img: '/assets/iphone.png',
         partnerImg: '',
       },
       {
@@ -122,7 +122,7 @@ export const goals = {
         text: 'Iphone 15 Pro',
         promotion: '0.05 $ Per every dollar saved for this purpose',
         price: 1300,
-        img: 'src/assets/iphone.png',
+        img: '/assets/iphone.png',
         partnerImg: '',
       },
       {
@@ -130,7 +130,7 @@ export const goals = {
         text: 'Iphone 15 Pro Max',
         promotion: '0.05 $ Per every dollar save for this purpose',
         price: 1500,
-        img: 'src/assets/iphone.png',
+        img: '/assets/iphone.png',
         partnerImg: '',
       },
       {
@@ -138,7 +138,7 @@ export const goals = {
         text: 'Iphone 14 Pro',
         promotion: '0.01 $ Per every dollar save for this purpose',
         price: 900,
-        img: 'src/assets/iphone.png',
+        img: '/assets/iphone.png',
         partnerImg: '',
       },
     ],
