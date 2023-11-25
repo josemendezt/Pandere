@@ -37,7 +37,7 @@ if (userId) employee = getEmployeeById(userId)
               <img
                 width={60}
                 class="rounded-full"
-                src={`../${employee.picture}`}
+                src={employee.picture}
                 alt={employee.name}
               />
             ) : (
