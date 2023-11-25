@@ -5,7 +5,18 @@ import Questions from '@/components/goalSteps/questions'
 import Results from '@/components/goalSteps/results'
 import LayoutInt from '@/layouts/LayoutInt.astro'
 import type { Category, Goal } from '@/tempData/goals'
-export const prerender = false // serverside
+//export const prerender = false // serverside
+
+//works for demo
+export function getStaticPaths() {
+  return [
+    { params: { step: 'selection', category: 'pending' } },
+    { params: { step: 'questions', category: 'travel' } },
+     { params: { step: 'questions', category: 'electronics' } },
+         { params: { step: 'results', category: 'travel' } },
+     { params: { step: 'results', category: 'electronics' } },
+]
+}
 
 const { step, category } = Astro.params
 
@@ -13,10 +24,10 @@ const cat = category as Category
 
 let goal
 if (step !== 'selection' && cat) {
-  goal = (await getGoalsByCategory(cat)) as Goal
+  goal =  getGoalsByCategory(cat) as Goal
 }
 
-const categories = (await getGoalCategories()) as Category[]
+const categories = getGoalCategories() as Category[]
 ---
 
 <LayoutInt title="Welcome to Pandere">

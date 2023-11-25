@@ -11,12 +11,15 @@ import {
 import PerformanceSlider from '@/components/employeeDetail/performanceSlider'
 import GoalsTable from '@/components/employeeDetail/goalsTable'
 
-export const prerender = false // serverside
+//export const prerender = false // serverside
+export function getStaticPaths() {
+  return [{ params: { employeeId: '1' } }, { params: { employeeId: '2' } }]
+}
 
 const { employeeId } = Astro.params
 
 let employee
-if (employeeId) employee = await getEmployeeById(employeeId)
+if (employeeId) employee = getEmployeeById(employeeId)
 ---
 
 <LayoutInt title="Welcome to Pandere">

@@ -1,12 +1,12 @@
 import { employees } from '@/tempData/employees'
 
-export const getEmployees = async () => {
-  const res = await Promise.resolve(employees)
-  return res
+export const getEmployees = () => {
+  // const res = await Promise.resolve(employees)
+  return employees
 }
 
-export const getEmployeeById = async (id: string) => {
-  const res = await Promise.resolve(employees.find((emp) => emp.id === id))
+export const getEmployeeById = (id: string) => {
+  // const res = await Promise.resolve(employees.find((emp) => emp.id === id))
 
-  return res
+  return employees.find((emp) => emp.id === id)
 }

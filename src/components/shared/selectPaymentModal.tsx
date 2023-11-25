@@ -11,6 +11,7 @@ import { DialogTitle } from '@radix-ui/react-dialog'
 import { Card, CardContent, RadioGroup, RadioGroupItem } from '../ui'
 import PaymentCardForm from './paymentCardForm'
 import { navigate } from 'astro:transitions/client'
+import Mastercard from '../../assets/mastercard_logo.png'
 
 export default function SelectPaymentModal({
   amount,
@@ -28,7 +29,7 @@ export default function SelectPaymentModal({
       <Card className="m-2 bg-secondary ">
         <CardContent>
           <div className="mt-8 flex h-8 w-[300px] items-center">
-            <img width={40} src="/src/assets/mastercard_logo.png" />
+            <img width={40} src={Mastercard.src} />
             <div className="flex w-full items-center justify-between ">
               <label className="ml-4 text-xl capitalize">
                 **** **** **** 4321

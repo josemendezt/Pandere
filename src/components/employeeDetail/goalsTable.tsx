@@ -35,7 +35,7 @@ export default function GoalsTable({ goals }: { goals: EmployeeGoal[] }) {
                     <img
                       width={50}
                       className="mx-auto"
-                      src={`../${goal.partnerImg}`}
+                      src={goal.partnerImg}
                       alt={goal.partner}
                     />
                     <div className="font-bold">{goal.goal}</div>

@@ -1,17 +1,17 @@
 import { goals, categories, type Category } from '@/tempData/goals'
 
-export const getGoals = async () => {
-  const res = await Promise.resolve(goals)
-  return res
+export const getGoals = () => {
+  //const res = await Promise.resolve(goals)
+  return goals
 }
 
-export const getGoalsByCategory = async (category: Category) => {
-  const res = await Promise.resolve(goals[category])
+export const getGoalsByCategory = (category: Category) => {
+  // const res = await Promise.resolve(goals[category])
 
-  return res
+  return goals[category]
 }
 
-export const getGoalCategories = async () => {
-  const res = await Promise.resolve(categories)
-  return res
+export const getGoalCategories = () => {
+  //const res = await Promise.resolve(categories)
+  return categories
 }

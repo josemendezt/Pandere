@@ -11,12 +11,17 @@ import {
 } from '@/components/ui'
 import GoalsTable from '@/components/employeeDetail/goalsTable'
 
-export const prerender = false // serverside
+//export const prerender = false // serverside
+
+// works for demo
+export function getStaticPaths() {
+  return [{ params: { userId: '1' } }, { params: { userId: '2' } }]
+}
 
 const { userId } = Astro.params
 
 let employee
-if (userId) employee = await getEmployeeById(userId)
+if (userId) employee = getEmployeeById(userId)
 ---
 
 <LayoutInt title="Welcome to Pandere">

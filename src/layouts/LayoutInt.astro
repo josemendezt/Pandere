@@ -2,8 +2,7 @@
 import '@/styles/global.css'
 import { ViewTransitions } from 'astro:transitions'
 import Header from '../components/header/Header.astro'
-import Spin from '@/components/shared/spin.html'
-import { showSpinner, hideSpinner } from '../components/shared/spinner.ts'
+import { Loader } from '@/components/shared/loader'
 
 interface Props {
   title: string
@@ -21,14 +20,13 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <script src="@/components/shared/spinner.ts"></script>
+    <ViewTransitions handleForms />
   </head>
-  <ViewTransitions handleForms />
   <body>
-    <Spin />
+    <Header />
+    <main class="mx-16 mt-28">
+      <Loader client:load />
+      <slot />
+    </main>
   </body>
-  <Header />
-  <main class="mx-16 mt-28">
-    <slot />
-  </main>
 </html>

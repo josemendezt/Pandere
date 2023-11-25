@@ -7,6 +7,9 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { navigate } from 'astro:transitions/client'
+import Visa from '../../assets/visa_logo.png'
+import Mastercard from '../../assets/mastercard_logo.png'
+import Amex from '../../assets/amex_logo.png'
 
 export default function PaymentCardForm({
   amount,
@@ -26,13 +29,13 @@ export default function PaymentCardForm({
           )}
           <div className="flex justify-center gap-4">
             <div>
-              <img width={50} src="/src/assets/visa_logo.png" />
+              <img width={50} src={Visa.src} alt="Visa logo" />
             </div>
             <div className="mt-2">
-              <img width={40} src="/src/assets/mastercard_logo.png" />
+              <img width={40} alt="mastercard" src={Mastercard.src} />
             </div>
             <div className="mt-1">
-              <img width={40} src="/src/assets/amex_logo.png" />
+              <img width={40} alt="Amex" src={Amex.src} />
             </div>
           </div>
         </DialogHeader>

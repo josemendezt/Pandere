@@ -8,12 +8,12 @@ export const employees = [
     performance: 80,
     contributionHistory: 20,
     budgetLeft: 500,
-    picture: 'src/assets/yo.jpg',
+    picture: '/assets/yo.jpg',
     goals: [
       {
         id: '1',
         partner: 'Apple',
-        partnerImg: 'src/assets/apple_logo.png',
+        partnerImg: '/assets/apple_logo.png',
         goal: 'Macbook Pro',
         description: '',
         totalAmount: 2000,
@@ -23,7 +23,7 @@ export const employees = [
       {
         id: '2',
         partner: 'Expedia',
-        partnerImg: 'src/assets/expedia_logo.png',
+        partnerImg: '/assets/expedia_logo.png',
         goal: 'Travel to Paris',
         description: '',
         totalAmount: 5000,
